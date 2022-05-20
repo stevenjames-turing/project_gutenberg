@@ -93,3 +93,5 @@ RSpec.configure do |config|
 =end
 end
 require 'webmock/rspec'
+require 'uri'
+require 'net/http'
