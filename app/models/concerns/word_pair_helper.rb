@@ -4,14 +4,24 @@ module WordPairHelper
     single_line = contents.gsub(/\R+/, ' ')
 
     # Standardize text
-    book_text = single_line.downcase.gsub(/[^0-9a-z' ]/, '')
-    book_array = book_text.split(' ')
+    formatted_text = single_line.downcase.gsub(/[^0-9a-z' ]/, '')
+    text_array = formatted_text.split(' ')
 
     # Set pairs and save to record
-    book_pairs = []
-    book_array.each_cons(2) do |pair|
-      book_pairs << pair 
+    pairs = []
+    text_array.each_cons(2) do |pair|
+      pairs << pair 
     end
-    self.word_pairs = book_pairs
+
+    pair_hash = {}
+    pairs.each do |pair|
+      if !pair_hash.has_key?(pair)
+        pair_hash[pair] = 1
+      else 
+        pair_hash[pair] += 1
+      end
+    end    
+
+    self.word_pairs = pair_hash
   end
 end
