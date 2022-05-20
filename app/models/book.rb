@@ -16,6 +16,8 @@ class Book < ApplicationRecord
   end
 
   def word_pairing_count(words)
-    word_pairs[[words[0], words[1]]]
+    pairing = words.split(",")
+
+    word_pairs[[pairing[0], pairing[1]]]
   end
 end

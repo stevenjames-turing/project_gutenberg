@@ -6,7 +6,7 @@ class BookSerializer
         "type": "book",
         "attributes": {
               "word_pairing": {
-                                  "word_pairing": words
+                                  "word_pairing": words,
                                   "total_count": count
                                   }
                                 }
