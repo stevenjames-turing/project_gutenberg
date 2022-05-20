@@ -15,6 +15,7 @@ RSpec.describe Book, type: :model do
       book = Book.create!(contents: response.body)
 
       expect(book.word_pairs).to_not be nil 
+      expect(book.word_pairs).to be_a Hash
 
       book.word_pairs.each do |pair|
         expect(pair.count).to eq(2)
@@ -26,7 +27,7 @@ RSpec.describe Book, type: :model do
       response = Net::HTTP.get_response(uri)
 
       book = Book.create!(contents: response.body)
-      
+
       expect(book.chapters.count).to eq(59)
     end
   end
