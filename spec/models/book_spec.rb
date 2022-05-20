@@ -40,7 +40,7 @@ RSpec.describe Book, type: :model do
 
         book = Book.create!(contents: response.body)
 
-        expect(book.word_pairing_count(["molly", "molly"])).to eq(3)
+        expect(book.word_pairing_count("molly,molly")).to eq(3)
       end
     end
   end
