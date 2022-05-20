@@ -31,4 +31,17 @@ RSpec.describe Book, type: :model do
       expect(book.chapters.count).to eq(59)
     end
   end
+
+  describe 'instance methods', :vcr do 
+    describe 'word_pairing_count(word_pairing)' do 
+      it 'returns the total count of a word pairing' do 
+        uri = URI('https://www.gutenberg.org/files/1400/1400-0.txt')
+        response = Net::HTTP.get_response(uri)
+
+        book = Book.create!(contents: response.body)
+
+        expect(book.word_pairing_count(["molly", "molly"])).to eq(3)
+      end
+    end
+  end
 end
