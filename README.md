@@ -29,7 +29,7 @@
   ### Exposed:
   
 - **Total Book Word-Pair Count**: 
-  - `GET [https://project-gutenberg.herokuapp.com/api/v1/books?word_pair=<FIRST_WORD>,<SECOND_WORD>](https://project-gutenberg.herokuapp.com/api/v1/books?word_pair=molly,molly)
+  - `GET project-gutenberg.herokuapp.com/api/v1/books?word_pair=<FIRST_WORD>,<SECOND_WORD>
   - Example Response
     ```
       GET https://project-gutenberg.herokuapp.com/api/v1/books?word_pair=molly,molly
