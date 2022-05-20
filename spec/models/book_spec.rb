@@ -20,5 +20,14 @@ RSpec.describe Book, type: :model do
         expect(pair.count).to eq(2)
       end
     end
+
+    it 'creates multiple chapters from book contents' do 
+      uri = URI('https://www.gutenberg.org/files/1400/1400-0.txt')
+      response = Net::HTTP.get_response(uri)
+
+      book = Book.create!(contents: response.body)
+      
+      expect(book.chapters.count).to eq(59)
+    end
   end
 end
